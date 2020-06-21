@@ -1,0 +1,17 @@
+<mat-card class="item-card">
+  <div class="section one">
+    <img src="{{item.cover}}">
+  </div>
+  <div class="section two">
+    <div>Title: {{item.title}}</div>
+    <div>Quantity: {{item.itemsNumber}}</div>
+    <div>Price: {{item.totalPriceOfItems}} {{item.currency}}</div>
+  </div>
+  <div class="section three">
+    <a class="remove" (click)="removeFromCart()">
+      <mat-icon>clear</mat-icon>
+    </a>
+    <a (click)="addOne()">Add one</a>
+    <a (click)="removeOne()">Remove one</a>
+  </div>
+</mat-card>

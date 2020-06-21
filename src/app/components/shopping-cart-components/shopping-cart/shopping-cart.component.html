@@ -1,0 +1,18 @@
+<div class="cart-item-container" *ngIf="productsInCart && productsInCart.length > 0; else cartEmpty">
+  <div class="section one">
+    <app-cart-item *ngFor="let product of productsInCart"
+    [item]="product"
+    (addPiece)="addOne($event)"
+    (removePiece)="removeOne($event)"
+    (removeAllPieces)="removeAll($event)">
+    </app-cart-item>
+  </div>
+  <div class="section two">
+    <mat-card>
+      <div class="total">Total: {{priceOfCartProducts}} {{item.currency}}</div>
+    </mat-card>
+  </div>
+</div>
+<ng-template #cartEmpty>
+  <h1>Cart is empty</h1>
+</ng-template>

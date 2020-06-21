@@ -1,0 +1,32 @@
+.item-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100px;
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    a {
+      text-align: right;
+      color: rgb(18, 97, 93);
+    }
+
+    a.remove {
+      color: red;
+    }
+
+    a:hover {
+      cursor: pointer;
+      color: lightseagreen;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+}

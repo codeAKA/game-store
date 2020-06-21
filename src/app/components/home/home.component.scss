@@ -1,0 +1,32 @@
+.gride-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  padding: 30px 15%;
+  background-color: rgb(234, 239, 245);
+
+  .gride {
+    mat-card-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    width: 48%;
+    background: rgb(150, 231, 200);
+    box-sizing: border-box;
+  }
+  .gride.right {
+    height: calc(100vh - 100px);
+  }
+  .gride.left {
+    min-height: 100%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .gride-container {
+    padding: 30px 8%;
+  }
+}
