@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { CartItemsModel } from '../cart-items.model';
 import { SharedService } from 'src/app/services/shared-service';
 import { filter } from 'rxjs/operators';
@@ -9,17 +9,22 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./shopping-cart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   public productsInCart: CartItemsModel[] = [];
   public item: CartItemsModel;
   public priceOfCartProducts = 0;
+  private sharedItemSubscribtion;
 
   constructor(public itemService: SharedService, private cd: ChangeDetectorRef) { }
 
+  ngOnDestroy(): void {
+    this.sharedItemSubscribtion.unsubscribe();
+  }
+
   ngOnInit(): void {
 
-    this.itemService.sharedItem.pipe(filter(el => el !== null))
+    this.sharedItemSubscribtion = this.itemService.sharedItem.pipe(filter(el => el !== null))
       .subscribe(item => {
         this.item = item;
 
