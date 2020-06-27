@@ -1,6 +1,6 @@
 <div class="cart-item-container" *ngIf="productsInCart && productsInCart.length > 0; else cartEmpty">
   <div class="section one">
-    <app-cart-item *ngFor="let product of productsInCart"
+    <app-cart-item *ngFor="let product of productsInCart; trackBy: trackedProduct"
     [item]="product"
     (addPiece)="addOne($event)"
     (removePiece)="removeOne($event)"

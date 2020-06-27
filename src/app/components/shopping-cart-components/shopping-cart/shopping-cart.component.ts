@@ -84,4 +84,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     return this.priceOfCartProducts = this.productsInCart.length > 0 ? this.productsInCart.map(item => item.totalPriceOfItems).reduce((prev, next) => prev + next) : 0;
   }
 
+  trackedProduct(index, product) {
+    return product.id;
+  }
+
 }
